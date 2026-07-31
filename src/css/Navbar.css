@@ -1,0 +1,31 @@
+a {
+  text-decoration: none;
+}
+
+a:is(:hover, :focus) {
+  color: beige;
+  scale: calc(1.1);
+}
+
+.navbar {
+  padding: 1.2rem 1rem;
+  background-color: rgb(4, 37, 65);
+  display: flex;
+  justify-content: space-between;
+}
+.logo h1 {
+  color: white;
+}
+.logo h1:is(:hover, :focus) {
+  scale: calc(1.01);
+}
+.pages {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  align-self: center;
+}
+.pages > * {
+  color: white;
+  font-size: 1.2rem;
+}

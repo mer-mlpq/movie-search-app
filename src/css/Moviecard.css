@@ -40,8 +40,8 @@
   color: grey;
 }
 .movie-overlay {
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  /* opacity: 0;
+  transition: opacity 0.3s ease-in-out; */
 }
 .movie-card:hover .movie-overlay {
   opacity: 1;

@@ -4,12 +4,15 @@ import { useMovieContext } from "../movieContext";
 
 const Moviecard = ({ movie }) => {
   const dates = movie.release_date.split("-");
-  const { addToFavorites, removeFromFavorites, isFavorite } = useMovieContext();
+  const { favorites, addToFavorites, removeFromFavorites, isFavorite } =
+    useMovieContext();
   const handleFavorites = () => {
-    if (isFavorite) {
+    if (isFavorite(movie)) {
+      console.log("remove from favorites");
       removeFromFavorites(movie);
     } else {
-      addToFavorites(addToFavorites(movie));
+      console.log("add to favorites");
+      addToFavorites(movie);
     }
   };
   return (
@@ -20,7 +23,7 @@ const Moviecard = ({ movie }) => {
       />
       <i
         className="fa-solid fa-heart heart-icon movie-overlay"
-        style={{ color: "white" }}
+        style={{ color: isFavorite(movie) ? "red" : "white" }}
         onClick={handleFavorites}
       ></i>
       <div className="movie-info movie-overlay">

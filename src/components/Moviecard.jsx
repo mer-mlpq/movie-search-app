@@ -1,8 +1,17 @@
 import React from "react";
 import "../css/Moviecard.css";
+import { useMovieContext } from "../movieContext";
 
 const Moviecard = ({ movie }) => {
   const dates = movie.release_date.split("-");
+  const { addToFavorites, removeFromFavorites, isFavorite } = useMovieContext();
+  const handleFavorites = () => {
+    if (isFavorite) {
+      removeFromFavorites(movie);
+    } else {
+      addToFavorites(addToFavorites(movie));
+    }
+  };
   return (
     <div className="movie-card">
       <img
@@ -12,6 +21,7 @@ const Moviecard = ({ movie }) => {
       <i
         className="fa-solid fa-heart heart-icon movie-overlay"
         style={{ color: "white" }}
+        onClick={handleFavorites}
       ></i>
       <div className="movie-info movie-overlay">
         <h3 className="movie-title">{movie.title}</h3>
